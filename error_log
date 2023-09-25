@@ -1,0 +1,6 @@
+[21-Aug-2021 10:42:58 Asia/Jakarta] PHP Fatal error:  Cannot redeclare User::index() in /home/waok4916/public_html/mastersite.my.id/application/controllers/User.php on line 83
+[28-Aug-2021 13:56:35 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Spk::spkorder() in /home/waok4916/public_html/spk/application/controllers/Spk.php on line 202
+[28-Aug-2021 13:56:59 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Spk::spkorder() in /home/waok4916/public_html/spk/application/controllers/Spk.php on line 202
+[28-Aug-2021 13:57:02 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Spk::spkorder() in /home/waok4916/public_html/spk/application/controllers/Spk.php on line 202
+[25-Sep-2021 14:20:26 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Team::prospek() in /home/waok4916/public_html/spk/application/controllers/Team.php on line 212
+[02-Oct-2021 13:24:13 Asia/Jakarta] PHP Fatal error:  Cannot use temporary expression in write context in /home/waok4916/public_html/spk/application/controllers/Spk.php on line 86

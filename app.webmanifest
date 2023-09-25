@@ -1,0 +1,71 @@
+{
+"background_color": "#fff",
+"display": "standalone",
+"orientation":"portrait",
+"theme_color": "#fff",
+"short_name": "Doel Si Petir",
+"name": "Dosier Elektronik",
+"description": "Dosier elektronik",
+"lang": "en-US",
+"icons": [
+  {
+   "src": "assets/img/ico/favicon-196x196.png",
+   "sizes": "196x196",
+   "type": "image/png",
+   "purpose": "any, maskable"
+  },
+  {
+   "src": "assets/img/ico/favicon-512x512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any, maskable"
+  }
+],
+"screenshots": [
+  {
+    "src": "assets/img/ico/sc3.png",
+    "sizes": "320x640",
+    "type": "image/png",
+    "purpose": "any, maskable"
+  },
+  {
+    "src": "assets/img/ico/sc1.png",
+    "sizes": "320x640",
+    "type": "image/png",
+    "purpose": "any, maskable"
+  },
+  {
+    "src": "assets/img/ico/sc2.png",
+    "sizes": "320x640",
+    "type": "image/png",
+    "purpose": "any, maskable"
+  },
+  {
+    "src": "assets/img/ico/mstile-144x144.png",
+    "sizes": "144x144",
+    "type": "image/png",
+    "purpose": "any, maskable"
+  }
+],
+"shortcuts": [
+  {
+    "name": "Doel sipetir",
+    "short_name": "Doel sipetir",
+    "description": "Aplikasi Dosier elektronik",
+    "url": "http://localhost/doelsipetir",
+"icons": [
+  {
+   "src": "./assets/img/ico/favicon-196x196.png",
+   "sizes": "196x196",
+   "type": "image/png"
+  },
+  {
+   "src": "./assets/img/ico/favicon-512x512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+]
+  }],
+"start_url": "./",
+"scope": "."
+}

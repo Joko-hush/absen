@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "firebase": "^9.9.4",
+    "remixicon": "^2.5.0",
+    "typed.js": "^2.0.12",
+    "wc-typed-js": "^1.0.1",
+    "webcamjs": "^1.0.26"
+  }
+}
