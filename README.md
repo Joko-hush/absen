@@ -9,7 +9,8 @@ untuk mulai menggunakan, silahkan masukan daftar anggota resmi di master personi
 pada kapala/pimpinan harus di ceklis.
 
 lalu sesuaikan jam kerja yang berlaku.
-
+jangan lupa lakukan npm install ada beberapa yang pake npm depedency nya.
+buat akun mapbox buat dapat token akses. jika sudah dapat masukkan ke controller personalia baris 731.
 
 
 
