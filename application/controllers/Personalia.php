@@ -727,6 +727,8 @@ class Personalia extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak ada data absen pada hari tersebut.</div>');
             redirect('personalia/absenPerorangan');
         }
+        // token mapbox bikin sendiri di https://www.mapbox.com/
+        $data['tokenmapbox'] = 'accestoken';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->where('is_active', 1);
         $this->db->order_by('date_created', 'desc');

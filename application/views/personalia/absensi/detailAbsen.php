@@ -139,7 +139,7 @@
 </div>
 <!-- /.content-wrapper -->
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9rby1ieSIsImEiOiJja3g4bG9wZHIwNDN1MnZucjY4b2V2N25nIn0.mBB6BcFslgIBkdxUEPWrzQ';
+    mapboxgl.accessToken = "<?= $tokenmapbox; ?>";
     const mapout = new mapboxgl.Map({
         container: 'mapout', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -172,7 +172,7 @@
         // make a marker for each feature and add to the map
         new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(mapout);
     }
-    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9rby1ieSIsImEiOiJja3g4bG9wZHIwNDN1MnZucjY4b2V2N25nIn0.mBB6BcFslgIBkdxUEPWrzQ';
+    mapboxgl.accessToken = "<?= $tokenmapbox; ?>";
     const mapin = new mapboxgl.Map({
         container: 'mapin', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
