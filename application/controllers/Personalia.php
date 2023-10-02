@@ -177,15 +177,12 @@ class Personalia extends CI_Controller
 
         if ($cn == 'tolak') {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi Akun berhasil di tolak dan dihapus dari sistem.</div>');
-            $this->_sendEmail($email, 'tolak');
             redirect('personalia/approval');
         } elseif ($cn == 'sudah ada') {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak dapat ditambahkan. Akun dengan nik tersebut telah terdaftar.</div>');
-            $this->_sendEmail($email, 'tolak');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak dapat ditambahkan. Akun dengan nik tersebut telah terdaftar. Pengajuan ini telah dihapus. User telah di beri informasi agar login dengan email yang telah terdaftar terdaftar.</div>');
             redirect('personalia/approval');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Aktivasi Akun berhasil. Data telah ditambahkan ke daftar personil.</div>');
-            $this->_sendEmail($email, 'acc');
             redirect('personalia/approval');
         }
     }

@@ -24,6 +24,10 @@ class Pers_model extends CI_model
             $cek = $this->db->get('jb_personil')->num_rows();
             if ($cek > 0) {
                 $stat = "sudah ada";
+                $text = "Akun dengan no induk karyawan tersebut telah terdaftar dengan email " . $cek['email'] . '\nSilahkan login dengan email diatas untuk masuk ke akun lama Anda. Jika lupa password silahkan lakukan reset password.';
+                $wa = $this->Wa_models->_send(phone($user['tlp']), $text);
+                $this->db->where('id', $id);
+                $this->db->delete('user');
                 return $stat;
             } else {
 
