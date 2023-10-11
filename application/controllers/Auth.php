@@ -143,8 +143,9 @@ class Auth extends CI_Controller
             $nik = $this->input->post('nik');
             $ln = strlen($nik);
             $name = strtoupper(htmlspecialchars($this->input->post('name', true)));
+
             $tlp = phone($this->input->post('tlp'));
-            if ($ln == 6) {
+            if ($ln < 6) {
                 $nik = $nik;
             } elseif ($ln <= 10) {
                 $a = substr($nik, 0, 2);
@@ -158,6 +159,7 @@ class Auth extends CI_Controller
             }
             $this->db->where('nip', $nik);
             $s = $this->db->get('m_personil_pers')->row_array();
+
 
 
             if ($s) {

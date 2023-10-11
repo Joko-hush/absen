@@ -29,12 +29,15 @@ class Member extends CI_Controller
 
         $this->db->where('nama', $data['staff']['jabatan']);
         $jabStaff = $this->db->get('m_jabatan')->row_array();
-
-        $id = $jabStaff['id'];
-        $this->db->where('id', $id);
-        $jbtn = $this->db->get('m_jabatan')->row_array();
-        if ($jbtn['leader'] == 1) {
-            redirect('member/leader');
+        if ($jabStaff) {
+            $id = $jabStaff['id'];
+            $this->db->where('id', $id);
+            $jbtn = $this->db->get('m_jabatan')->row_array();
+            if ($jbtn) {
+                if ($jbtn['leader'] == 1) {
+                    redirect('member/leader');
+                }
+            }
         }
         $today = date('Y-m-d');
         $this->db->where('nip', $data['staff']['nik']);
@@ -178,8 +181,8 @@ class Member extends CI_Controller
         $data['title'] = 'DOEL SI PETIR | Isi Data';
         $data['judul'] = 'Pengisian Data Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $db150 = $this->load->database('staff', true);
-        $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
+        // $db150 = $this->load->database('staff', true);
+        // $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
 
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
 
