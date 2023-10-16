@@ -135,17 +135,8 @@
           }
       }
   </script>
-  
-  <script>
-      if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-              navigator.serviceWorker.register('./service-worker.js')
-                  .then(() => {
-                      console.log('[ Hey there! ] Service Worker Registered');
-                  });
-          });
-      }
-  </script>
+
+
   </body>
 
   </html>

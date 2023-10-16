@@ -161,6 +161,8 @@ class Absensi extends CI_Controller
 
     public function absenMasuk()
     {
+        // $lat1 = (-6.885251172722737);
+        // $lon1 = (107.53311745343375);
         $lat1 = (-7.225259893979511);
         $lon1 = (107.9117726005365);
         $data['user'] = $this->db->get_where('jb_personil', ['email' => $this->session->userdata('email')])->row_array();
@@ -180,9 +182,9 @@ class Absensi extends CI_Controller
             $latitude = implode($latitude);
             $latitude = trim($latitude);
         }
-        // var_dump($latitude);
-        // die;
+
         $filename = '' . $data['user']['name'] . '-in-' . $hari_ini . '-' . $data['user']['nik'] . '.jpg';
+
         $jam_kerja_id = $this->db->get_where('jam_kerja', ['id' => $data['user']['jam_kerja_id']])->row_array();
         $jk_id = $jam_kerja_id['id'];
         $jamMasuk = $jam_kerja_id['jam_masuk'];
@@ -208,16 +210,18 @@ class Absensi extends CI_Controller
             list($lat2, $lon2) = explode(',', $latitude);
             $lat2 = trim($lat2);
             $lon2 = trim($lon2);
+
             $cek_lokasi = $this->Absen_models->radius($lat1, $lon1, $lat2, $lon2);
             if ($cek_lokasi == 'true') {
                 $kehadiran = $this->db->get_where('abs_kehadiran', ['NIP' => $data['user']['nik'], 'TGL_MASUK' => $hari_ini])->row_array();
                 if (!$kehadiran) {
-
                     $absenMasuk = $this->_absenMasuk($filename, $latitude, $tmpName, $jk_id, $info, $time);
                     echo $absenMasuk;
                 } else {
                     echo "Maaf, Anda sudah Absen Masuk hari ini. Silahkan absen lagi besok.";
                 }
+            } else {
+                echo "Maaf, Absen hanya dilakukan di wilayah rumah sakit. Silahkan periksa akurasi GPS Anda jika anda memang sudah di RS.";
             }
         }
     }
@@ -426,7 +430,7 @@ class Absensi extends CI_Controller
                 'IJIN_ID' => '',
                 'JAM_KERJA_ID' => $jk_id
             ];
-            $this->db->insert('abs_kehadiran', $dataabsen);
+            $sql = $this->db->insert('abs_kehadiran', $dataabsen);
             $cek = ($this->db->affected_rows() != 1) ? false : true;
             move_uploaded_file($tmpName, './assets/img/absen/' . $filename);
 

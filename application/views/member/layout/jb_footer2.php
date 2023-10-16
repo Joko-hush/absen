@@ -286,16 +286,7 @@ if ($judul == "Pengisian Data Personil") {
     });
 </script>
 
-<script>
-    // if ('serviceWorker' in navigator) {
-    //     window.addEventListener('load', () => {
-    //         navigator.serviceWorker.register('./service-worker.js')
-    //             .then(() => {
-    //                 console.log('[ Hey there! ] Service Worker Registered');
-    //             });
-    //     });
-    // }
-</script>
+
 <script>
     function check(a) {
         $('#satuan').val($(a).find(':selected').data('satuan'));

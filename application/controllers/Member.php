@@ -16,7 +16,7 @@ class Member extends CI_Controller
         $data['title'] = 'DOEL SI PETIR';
         $data['judul'] = 'home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
+        $data['staff'] = $this->db->get_where('jb_personil', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->set('online', 1);
         $this->db->where('id', $data['staff']['id']);
         $this->db->update('jb_personil');

@@ -281,16 +281,7 @@ if ($judul == "Pengisian Data Personil") {
     });
 </script>
 
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
-                .then(() => {
-                    console.log('[ Hey there! ] Service Worker Registered');
-                });
-        });
-    }
-</script>
+
 <script>
     function check(a) {
         $('#satuan').val($(a).find(':selected').data('satuan'));
@@ -305,7 +296,7 @@ if ($judul == "Pengisian Data Personil") {
     }
 </script>
 <?php if ($judul == 'Absen') { ?>
-    <script src="<?= base_url(); ?>/assets/js/absen.js?v=1.0"></script>
+    <script src="<?= base_url(); ?>/assets/js/absen.js?v=1.1"></script>
 <?php } ?>
 
 <script>

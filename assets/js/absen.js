@@ -148,7 +148,7 @@ function captureimagedd() {
 					swal({
 						title: "",
 						text: text,
-						icon: "success",
+						icon: "error",
 						timer: 3500,
 					});
 					setTimeout("location.href = '../member';", 4500);
