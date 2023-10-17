@@ -13,7 +13,7 @@ class Member extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $this->session->userdata('email')])->row_array();
@@ -52,7 +52,7 @@ class Member extends CI_Controller
     }
     public function leader()
     {
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'PJ';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -73,7 +73,7 @@ class Member extends CI_Controller
     }
     public function personal_info()
     {
-        $data['title'] = 'DOEL SI PETIR | DATA POKOK';
+        $data['title'] = 'Si Kabayan | DATA POKOK';
         $data['judul'] = 'Data Pokok';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -91,7 +91,7 @@ class Member extends CI_Controller
     }
     public function rh()
     {
-        $data['title'] = 'DOEL SI PETIR | RH';
+        $data['title'] = 'Si Kabayan | RH';
         $data['judul'] = 'Riwayat Hidup';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -178,7 +178,7 @@ class Member extends CI_Controller
     }
     public function inputdata()
     {
-        $data['title'] = 'DOEL SI PETIR | Isi Data';
+        $data['title'] = 'Si Kabayan | Isi Data';
         $data['judul'] = 'Pengisian Data Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $db150 = $this->load->database('staff', true);
@@ -796,7 +796,7 @@ class Member extends CI_Controller
 
     public function pangkat()
     {
-        $data['title'] = 'DOEL SI PETIR | Isi Data';
+        $data['title'] = 'Si Kabayan | Isi Data';
         $data['judul'] = 'Pengisian Data Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $db150 = $this->load->database('staff', true);
@@ -931,7 +931,7 @@ class Member extends CI_Controller
         $db150 = $this->load->database('staff', true);
         $data['pangkat'] = $db150->get('M_STAFF_PANGKAT')->result_array();
 
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Edit Riwayat Pangkat';
 
         $this->form_validation->set_rules('pangkat', 'Pangkat', 'required|trim');
@@ -1013,7 +1013,7 @@ class Member extends CI_Controller
     }
     public function pendidikan()
     {
-        $data['title'] = 'DOEL SI PETIR | Isi Data';
+        $data['title'] = 'Si Kabayan | Isi Data';
         $data['judul'] = 'Riwayat Pendidikan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $db150 = $this->load->database('staff', true);
@@ -1117,7 +1117,7 @@ class Member extends CI_Controller
         $dikum = $this->db->get('jb_dik_um')->row_array();
         $data['dikum'] = $dikum;
 
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Edit Pendidikan Umum';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -1266,7 +1266,7 @@ class Member extends CI_Controller
         $dikmil = $this->db->get('jb_dikmil_a')->row_array();
         $data['dikmil'] = $dikmil;
 
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Edit Pendidikan Militer';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -1329,7 +1329,7 @@ class Member extends CI_Controller
         $dikmil = $this->db->get('jb_dikmil_b')->row_array();
         $data['dikmil'] = $dikmil;
 
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Edit Pendidikan Militer';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -1667,7 +1667,7 @@ class Member extends CI_Controller
     }
     public function edittkh()
     {
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Dashboard Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -1730,7 +1730,7 @@ class Member extends CI_Controller
     }
     public function prestasi()
     {
-        $data['title'] = 'DOEL SI PETIR | Riwayat Prestasi';
+        $data['title'] = 'Si Kabayan | Riwayat Prestasi';
         $data['judul'] = 'Riwayat Prestasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $db150 = $this->load->database('staff', true);
@@ -1810,7 +1810,7 @@ class Member extends CI_Controller
     }
     public function kinerja()
     {
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Kinerja Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
@@ -1861,7 +1861,7 @@ class Member extends CI_Controller
     {
         $db2 = $this->load->database('staff', true);
 
-        $data['title'] = 'DOEL SI PETIR';
+        $data['title'] = 'Si Kabayan';
         $data['judul'] = 'Kinerja Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();

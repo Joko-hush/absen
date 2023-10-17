@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="<?= base_url(); ?>" class="brand-link" style="text-decoration: none;">
         <img src="<?= base_url('assets/img/Sipetir.png'); ?>" alt="logo doel si petir" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">DOEL SI PETIR</span>
+        <span class="brand-text font-weight-light">SI KABAYAN</span>
     </a>
 
     <!-- Sidebar -->
