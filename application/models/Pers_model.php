@@ -10,7 +10,8 @@ class Pers_model extends CI_model
             $email = $user['email'];
             $this->db->where('id', $id);
             $this->db->delete('user');
-            $this->_sendEmail($stat, $email);
+            $text = "Pengajuan akun anda ditolak. Silahkan hubungi bagian pers";
+            $wa = $this->Wa_models->_send(phone($user['tlp']), $text);
             return $stat;
         } else {
             $this->db->where('id', $id);
@@ -68,59 +69,13 @@ class Pers_model extends CI_model
                 $this->db->set('is_active', 2);
                 $this->db->where('id', $id);
                 $this->db->update('user');
-                $this->_sendEMail($stat, $email);
+                $text = "Akun dengan no induk karyawan tersebut telah terdaftar dengan email " . $cek['email'] . '\nSilahkan login dengan email diatas untuk masuk ke akun Anda.';
+                $wa = $this->Wa_models->_send(phone($user['tlp']), $text);
                 return $stat;
             }
         }
     }
-    private function _sendEmail($type, $email)
-    {
 
-        $to = $email;
-        $from = 'info@rsdustira.co.id';
-        if ($type == 'tolak') {
-            $subject = 'Aktivasi Akun';
-            $body = base64_encode('Mohon Maaf akun Anda tidak di setujui silahkan hubungi bagian personalia untuk informasi lebih lanjut.');
-        } else if ($type == 'setuju') {
-            $subject = 'Aktivasi Akun';
-            $body = base64_encode('Akun Anda telah di setujui. Silahkan klik link dibawah ini untuk login.<br> <a href="' . base_url() . 'auth' . '">Login</a>');
-        }
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, "http://172.165.115.224/sendmail.php");
-
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt(
-            $ch,
-            CURLOPT_POSTFIELDS,
-            "to=$to&from=$from&subject=$subject&text=$body"
-        );
-        $output = curl_exec($ch);
-
-        curl_close($ch);
-        return true;
-    }
-    private function safeBase64($str)
-    {
-        return strtr($this->base64($str), '+/=', '-_,');
-    }
-
-    private function deSafeBase64($str)
-    {
-        return $this->deBase64(strtr($str, '-_,', '+/='));
-    }
-
-    private function base64($str)
-    {
-        return base64_encode($str);
-    }
-
-    private function deBase64($str)
-    {
-        return base64_decode($str);
-    }
     public function getAllPersonilPerJabatan()
     {
         $sql = "SELECT        

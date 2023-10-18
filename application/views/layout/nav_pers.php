@@ -62,7 +62,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-info btn-sm" href="<?= base_url('sendInformasiAbsensi/reminderAbsenMasuk'); ?>">
+            <a class="nav-link btn btn-info btn-sm" href="<?= base_url('autobot/pengingat1'); ?>">
                 Ingatkan Absen
             </a>
         </li>

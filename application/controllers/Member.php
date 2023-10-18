@@ -799,8 +799,8 @@ class Member extends CI_Controller
         $data['title'] = 'Si Kabayan | Isi Data';
         $data['judul'] = 'Pengisian Data Personil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $db150 = $this->load->database('staff', true);
-        $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
+        // $db150 = $this->load->database('staff', true);
+        // $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
 
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
 
@@ -1016,8 +1016,8 @@ class Member extends CI_Controller
         $data['title'] = 'Si Kabayan | Isi Data';
         $data['judul'] = 'Riwayat Pendidikan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $db150 = $this->load->database('staff', true);
-        $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
+        // $db150 = $this->load->database('staff', true);
+        // $data['bagian'] = $db150->get('M_STAFF_BAGIAN')->result_array();
 
         $data['staff'] = $this->db->get_where('jb_personil', ['email' => $data['user']['email']])->row_array();
 
