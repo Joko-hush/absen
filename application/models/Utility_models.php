@@ -6,26 +6,20 @@ class Utility_models extends CI_Model
 {
     public function getUnregistered()
     {
-        $queri = "SELECT * From (select 
-                    nip = A.NIP
-                    ,nama = A.nama
-                    ,pangkat = A.pangkat
-                    ,jabatan = A.jabatan
-                    ,gol = A.gol
-                    ,Sudah_Daftar = ISNULL((SELECT TOP 1CONVERT(BIT, 1) FROM jb_personil AS AA WHERE AA.NIK = A.NIP), CONVERT(BIT, 0))
+        $this->db->select('A.NIP AS nip, A.nama AS nama, A.pangkat, A.jabatan, A.gol, ISNULL((SELECT TOP 1 CONVERT(BIT, 1) FROM jb_personil AS AA WHERE AA.NIK = A.NIP), CONVERT(BIT, 0)) AS Sudah_Daftar', false);
+        $this->db->from('m_personil_pers A');
+        $this->db->where('A.ket !=', 'MPP');
+        $this->db->where('A.ket !=', 'meninggal');
+        $this->db->where('A.ket !=', 'mutasi');
+        $this->db->where('A.ket !=', 'stikes');
+        $this->db->where('A.ket !=', 'pendidikan');
+        $this->db->where('A.ket !=', 'pensiun');
+        $this->db->where('A.ket !=', 'paku');
+        $this->db->having('Sudah_Daftar', 0);
 
-                    from m_personil_pers A
-										WHERE NOT A.ket='MPP'
-                                         AND NOT A.ket='meninggal' 
-                                         AND NOT A.ket='mutasi' 										
-                                         AND NOT A.ket='stikes' 										
-                                         AND NOT A.ket='pendidikan' 										
-                                         AND NOT A.ket='pensiun' 										
-                                         AND NOT A.ket='paku' 										
-                    ) AS ZZ
-                    Where zz.Sudah_Daftar = 0";
+        $query = $this->db->get()->result_array();
 
-        return $this->db->query($queri)->result_array();
+        return $query;
     }
 
     public function updatePersonil($data, $where)
