@@ -176,17 +176,6 @@ class Auth extends CI_Controller
                     'tlp' => $tlp
                 ];
 
-                // $data2 = [
-                //     'nik' => $nik,
-                //     'name' => strtoupper(htmlspecialchars($this->input->post('name', true))),
-                //     'sex' => $s['gender'],
-                //     'email' => htmlspecialchars($email),
-                //     'image' => 'default.jpg',
-                //     'jabatan' => $s['jabatan'],
-                //     'created_at' => time()
-                // ];
-
-                // $token = random_bytes(32);
                 $token = rand(64, 123161);
                 $user_token = [
                     'email' => $email,
