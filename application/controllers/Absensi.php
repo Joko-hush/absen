@@ -196,21 +196,11 @@ class Absensi extends CI_Controller
             $info = 'Terlambat';
         }
         if ($latitude == '') {
-            $kehadiran = $this->db->get_where('abs_kehadiran', ['NIP' => $data['user']['nik'], 'TGL_MASUK' => $hari_ini])->row_array();
-            if (!$kehadiran) {
-                $phone = phone($data['user']['tlp']);
-                $text = "*Pemberitahuan* Anda berhasil absen. Tetapi lokasi anda tidak terdeteksi. Silahkan periksa GPS dan Ijin Lokasi. *ini pesan otomatis*";
-                $wa = $this->Wa_models->_send($phone, $text);
-                $absenMasuk = $this->_absenMasuk($filename, $latitude, $tmpName, $jk_id, $info, $time);
-                echo $absenMasuk;
-            } else {
-                echo "Maaf, Anda sudah Absen Masuk hari ini. Silahkan absen lagi besok.";
-            }
+            echo "Maaf, Lokasi Anda tidak terdeteksi. Silahkan cek pengaturan dan ijin lokasi untuk alamat situs ini.";
         } else {
             list($lat2, $lon2) = explode(',', $latitude);
             $lat2 = trim($lat2);
             $lon2 = trim($lon2);
-
             $cek_lokasi = $this->Absen_models->radius($lat1, $lon1, $lat2, $lon2);
             if ($cek_lokasi == 'true') {
                 $kehadiran = $this->db->get_where('abs_kehadiran', ['NIP' => $data['user']['nik'], 'TGL_MASUK' => $hari_ini])->row_array();
