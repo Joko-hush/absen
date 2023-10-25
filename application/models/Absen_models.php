@@ -19,8 +19,11 @@ class Absen_models extends CI_Model
     }
     public function getUnknown($date1, $date2)
     {
-        $sql = "SELECT * FROM jb_personil A WHERE NOT EXISTS (SELECT * FROM abs_kehadiran B WHERE A.nik = B.NIP AND B.TGL_MASUK between '$date1' and '$date2')";
-        return $this->db->query($sql)->result_array();
+        $this->db->select('*');
+        $this->db->from('jb_personil A');
+        $this->db->where("NOT EXISTS (SELECT * FROM abs_kehadiran B WHERE A.nik = B.NIP AND B.TGL_MASUK between '$date1' and '$date2')", NULL, FALSE);
+
+        return $this->db->get()->result_array();
     }
     public function getIjin()
     {
